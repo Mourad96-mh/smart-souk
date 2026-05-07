@@ -63,6 +63,7 @@ export default function Contact() {
       <Seo
         title="Contact"
         description="Contactez Smart Souk par WhatsApp au +212 660-708240. Disponibles 7j/7. Livraison partout au Maroc sous 24-48h, paiement à la livraison."
+        keywords="contact smart souk, whatsapp boutique maroc, service client maroc, livraison maroc, commande en ligne maroc"
         canonical="/contact"
         schema={FAQ_SCHEMA}
       />

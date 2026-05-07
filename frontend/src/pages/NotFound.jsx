@@ -1,10 +1,12 @@
 import { Link, useNavigate } from 'react-router-dom';
+import Seo from '../components/Seo';
 
 export default function NotFound() {
   const navigate = useNavigate();
 
   return (
     <main style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 'var(--space-16) var(--space-5)' }}>
+      <Seo title="Page introuvable" noindex />
       <div style={{ textAlign: 'center', maxWidth: 520 }}>
 
         {/* Big 404 */}

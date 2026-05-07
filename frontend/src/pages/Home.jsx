@@ -19,6 +19,33 @@ const HOME_SCHEMA = {
   openingHours: 'Mo-Sa 09:00-20:00',
 };
 
+const FAQ_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Livrez-vous partout au Maroc ?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Oui, nous livrons dans toutes les villes du Maroc sous 24 à 48h. Commandez avant 14h pour recevoir le lendemain.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Comment payer ma commande ?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Le paiement se fait uniquement à la livraison en cash. Aucun paiement en ligne n\'est requis.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Puis-je retourner un produit ?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Oui, si vous recevez un produit défectueux ou non conforme, contactez-nous immédiatement via WhatsApp pour un échange ou remboursement.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Comment suivre ma commande ?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Après confirmation de votre commande, notre équipe vous contacte par WhatsApp pour vous communiquer les détails de livraison.' },
+    },
+  ],
+};
+
 const PER_PAGE = 4;
 
 export default function Home() {
@@ -45,8 +72,9 @@ export default function Home() {
       <Seo
         title="Accueil"
         description="Smart Souk — Boutique en ligne multi-catégories au Maroc. Électronique, maison, mode, sport. Livraison sous 24-48h. Paiement à la livraison."
+        keywords="boutique en ligne maroc, achat en ligne maroc, livraison rapide maroc, paiement livraison maroc, électronique maroc, mode maroc, sport maroc, maison maroc"
         canonical="/"
-        schema={HOME_SCHEMA}
+        schema={[HOME_SCHEMA, FAQ_SCHEMA]}
       />
       {/* Hero */}
       <section

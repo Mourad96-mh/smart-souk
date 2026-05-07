@@ -95,11 +95,21 @@ export default function ProductDetail() {
     ],
   };
 
+  const productKeywords = [
+    product.name,
+    product.category?.name,
+    `${product.name} maroc`,
+    `acheter ${product.name}`,
+    'livraison maroc',
+    'paiement livraison',
+  ].filter(Boolean).join(', ');
+
   return (
     <main style={{ flex: 1 }}>
       <Seo
         title={product.name}
         description={`${product.name} — ${product.description.slice(0, 120)}. Livraison au Maroc sous 24-48h. Paiement à la livraison.`}
+        keywords={productKeywords}
         canonical={`/produits/${slug}`}
         image={product.image}
         type="product"

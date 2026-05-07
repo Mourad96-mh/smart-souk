@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { api } from '../utils/api';
 import { WHATSAPP_NUMBER } from '../config';
+import Seo from '../components/Seo';
 
 export default function Checkout() {
   const { items, total, clearCart } = useCart();
@@ -103,6 +104,7 @@ export default function Checkout() {
 
   return (
     <main style={{ flex: 1 }}>
+      <Seo title="Commander" noindex />
       <div className="checkout-page">
         <div className="container">
           <div className="breadcrumb" style={{ marginBottom: 24 }}>

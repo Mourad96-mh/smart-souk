@@ -56,10 +56,13 @@ export default function Products() {
   const seoDesc = activeCategory
     ? `Découvrez notre sélection ${activeCategory.name} — livraison sous 24-48h au Maroc, paiement à la livraison.`
     : 'Tous nos produits disponibles au Maroc. Électronique, maison, mode, sport. Livraison rapide, paiement à la livraison.';
+  const seoKeywords = activeCategory
+    ? `${activeCategory.name.toLowerCase()}, achat ${activeCategory.name.toLowerCase()} maroc, livraison maroc, paiement livraison`
+    : 'produits en ligne maroc, achat en ligne maroc, électronique maroc, mode maroc, maison maroc, sport maroc';
 
   return (
     <main style={{ flex: 1 }}>
-      <Seo title={seoTitle} description={seoDesc} canonical="/produits" />
+      <Seo title={seoTitle} description={seoDesc} keywords={seoKeywords} canonical="/produits" />
       <div className="products-page">
         <div className="container">
           <div className="products-page-header">

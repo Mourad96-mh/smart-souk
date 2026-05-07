@@ -1,5 +1,17 @@
 Options -MultiViews
 RewriteEngine On
+
+# Crawler detection — redirect to prerender endpoint for product pages
+RewriteCond %{HTTP_USER_AGENT} (googlebot|bingbot|slurp|duckduckbot|baiduspider|yandexbot|facebookexternalhit|twitterbot|linkedinbot|whatsapp|applebot|discordbot|telegrambot|slackbot|GPTBot|PerplexityBot|ClaudeBot|Google-Extended) [NC]
+RewriteCond %{REQUEST_URI} ^/produits/(.+)$
+RewriteRule ^produits/(.+)$ https://smart-souk-backend.onrender.com/prerender/produits/$1 [L,R=302]
+
+# Redirect /sitemap.xml to dynamic backend version
+RewriteCond %{HTTP_USER_AGENT} (googlebot|bingbot|Googlebot-Image|Twitterbot|facebookexternalhit) [NC,OR]
+RewriteCond %{REQUEST_URI} ^/sitemap\.xml$
+RewriteRule ^sitemap\.xml$ https://smart-souk-backend.onrender.com/sitemap.xml [L,R=302]
+
+# SPA fallback for React Router
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^ index.html [QSA,L]
