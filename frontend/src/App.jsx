@@ -18,6 +18,7 @@ import AdminCategoryForm from './pages/admin/AdminCategoryForm';
 import AdminProducts from './pages/admin/AdminProducts';
 import AdminProductForm from './pages/admin/AdminProductForm';
 import AdminOrders from './pages/admin/AdminOrders';
+import AdminSettings from './pages/admin/AdminSettings';
 
 import { useState } from 'react';
 
@@ -135,6 +136,14 @@ export default function App() {
           element={
             <PrivateRoute>
               <AdminOrders />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/admin/parametres"
+          element={
+            <PrivateRoute>
+              <AdminSettings />
             </PrivateRoute>
           }
         />
