@@ -88,25 +88,45 @@ export default function Home() {
           backgroundPosition: 'center',
         }}
       >
-        <div className="container">
-          <div className="hero-content">
-            <div className="hero-tag">⚡ Nouveautés chaque semaine</div>
-            <h1>
-              Tout ce dont vous avez
-              <span> besoin, livré chez vous</span>
-            </h1>
-            <p>
-              Des milliers de produits dans toutes les catégories.
-              Qualité garantie, livraison sous 24–48h. Payez à la livraison.
-            </p>
-            <div className="hero-actions">
-              <Link to="/produits" className="btn btn-accent btn-lg">
-                Voir tous les produits
-              </Link>
-              <Link to="/produits" className="hero-btn-outline">
-                Parcourir les catégories
-              </Link>
+        <div className="hero-inner">
+          <div className="container">
+            <div className="hero-content">
+              <div className="hero-tag">⚡ Nouveautés chaque semaine</div>
+              <h1>
+                Tout ce dont vous avez
+                <span> besoin, livré chez vous</span>
+              </h1>
+              <p>
+                Des milliers de produits dans toutes les catégories.
+                Qualité garantie, livraison sous 24–48h. Payez à la livraison.
+              </p>
+              <div className="hero-actions">
+                <Link to="/produits" className="btn btn-accent btn-lg">
+                  Voir tous les produits
+                </Link>
+                <Link to="/produits" className="hero-btn-outline">
+                  Parcourir les catégories
+                </Link>
+              </div>
             </div>
+          </div>
+        </div>
+
+        {/* Mobile-only infinite ticker */}
+        <div className="hero-ticker">
+          <div className="hero-ticker-track">
+            <span>🚚 Livraison partout au Maroc sous 24–48h</span>
+            <span className="ticker-dot">·</span>
+            <span>💳 Paiement à la livraison</span>
+            <span className="ticker-dot">·</span>
+            <span>✅ Qualité garantie</span>
+            <span className="ticker-dot">·</span>
+            <span>🚚 Livraison partout au Maroc sous 24–48h</span>
+            <span className="ticker-dot">·</span>
+            <span>💳 Paiement à la livraison</span>
+            <span className="ticker-dot">·</span>
+            <span>✅ Qualité garantie</span>
+            <span className="ticker-dot">·</span>
           </div>
         </div>
       </section>
