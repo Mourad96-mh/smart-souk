@@ -1,0 +1,25 @@
+# Smart Souk
+
+Smart Souk est une boutique en ligne marocaine multi-catégories. Nous proposons des produits de qualité dans l'électronique, la maison, la mode et le sport, avec livraison rapide partout au Maroc.
+
+## Ce que nous faisons
+- Vente en ligne de produits multi-catégories au Maroc
+- Livraison sous 24 à 48h partout au Maroc
+- Paiement à la livraison (cash uniquement, aucun paiement en ligne)
+- Produits sélectionnés avec soin, qualité garantie
+
+## Catégories principales
+- Électronique & High-Tech (casques, chargeurs, enceintes, montres connectées)
+- Maison & Cuisine (appareils, ustensiles, accessoires)
+- Mode & Accessoires (sacs, montres, maroquinerie)
+- Sport & Bien-être (équipements fitness, yoga, running)
+
+## Contact
+- WhatsApp: +212 660-708240
+- Disponible 7j/7, réponse sous 24h
+- Zone de livraison: Maroc entier
+
+## Avantages
+- Pas de compte requis pour commander
+- Satisfaction garantie ou remboursement
+- Service client par WhatsApp pour suivi de commande

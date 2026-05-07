@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary meta -->
+    <title>Smart Souk — Votre boutique en ligne au Maroc</title>
+    <meta name="description" content="Boutique en ligne multi-catégories au Maroc. Électronique, maison, mode, sport. Livraison sous 24-48h partout au Maroc. Paiement à la livraison." />
+    <meta name="keywords" content="boutique en ligne maroc, achat en ligne maroc, livraison maroc, paiement livraison maroc, smart souk" />
+    <meta name="author" content="Smart Souk" />
+
+    <!-- Geo -->
+    <meta name="geo.region" content="MA" />
+    <meta name="geo.placename" content="Maroc" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Smart Souk" />
+    <meta property="og:title" content="Smart Souk — Votre boutique en ligne au Maroc" />
+    <meta property="og:description" content="Boutique en ligne multi-catégories au Maroc. Livraison sous 24-48h. Paiement à la livraison." />
+    <meta property="og:image" content="https://smartsouk.ma/logo.png" />
+    <meta property="og:url" content="https://smartsouk.ma" />
+    <meta property="og:locale" content="fr_MA" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Smart Souk — Votre boutique en ligne au Maroc" />
+    <meta name="twitter:description" content="Boutique en ligne multi-catégories au Maroc. Livraison sous 24-48h. Paiement à la livraison." />
+    <meta name="twitter:image" content="https://smartsouk.ma/logo.png" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/logo.png" />
+
+    <!-- JSON-LD: Organization + WebSite -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://smartsouk.ma/#organization",
+          "name": "Smart Souk",
+          "url": "https://smartsouk.ma",
+          "logo": "https://smartsouk.ma/logo.png",
+          "telephone": "+212660708240",
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+212660708240",
+            "contactType": "customer service",
+            "availableLanguage": ["French", "Arabic"],
+            "contactOption": "TollFree"
+          },
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "MA"
+          },
+          "areaServed": "MA",
+          "sameAs": []
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://smartsouk.ma/#website",
+          "url": "https://smartsouk.ma",
+          "name": "Smart Souk",
+          "publisher": { "@id": "https://smartsouk.ma/#organization" },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://smartsouk.ma/produits?search={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+          }
+        }
+      ]
+    }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
