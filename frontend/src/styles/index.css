@@ -309,14 +309,12 @@ ul   { list-style: none; }
 }
 .hero-content { position: relative; z-index: 1; max-width: 600px; }
 
-/* ── Mobile ticker ── */
+/* ── Mobile ticker (below hero) ── */
 .hero-ticker {
   display: none;
   overflow: hidden;
-  background: rgba(15, 23, 42, 0.88);
-  border-top: 1px solid rgba(255,255,255,0.1);
+  background: #1e3a8a;
   padding: 9px 0;
-  flex-shrink: 0;
 }
 .hero-ticker-track {
   display: flex; align-items: center;
@@ -741,9 +739,7 @@ table tbody tr:hover td { background: var(--color-bg); }
   /* Navbar height — announcement bar is hidden on mobile */
   :root { --navbar-h: 68px; }
 
-  /* Navbar layout: burger + cart on LEFT, logo on RIGHT */
-  .navbar-main .container  { flex-direction: row-reverse; }
-  .navbar-actions          { flex-direction: row-reverse; } /* burger first, then cart */
+  /* Navbar: logo LEFT, cart icon + burger RIGHT */
   .navbar-nav              { display: none; }
   .navbar-search           { display: none; }
   .navbar-mobile-toggle    { display: flex; }

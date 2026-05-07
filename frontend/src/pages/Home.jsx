@@ -112,24 +112,25 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Mobile-only infinite ticker */}
-        <div className="hero-ticker">
-          <div className="hero-ticker-track">
-            <span>🚚 Livraison partout au Maroc sous 24–48h</span>
-            <span className="ticker-dot">·</span>
-            <span>💳 Paiement à la livraison</span>
-            <span className="ticker-dot">·</span>
-            <span>✅ Qualité garantie</span>
-            <span className="ticker-dot">·</span>
-            <span>🚚 Livraison partout au Maroc sous 24–48h</span>
-            <span className="ticker-dot">·</span>
-            <span>💳 Paiement à la livraison</span>
-            <span className="ticker-dot">·</span>
-            <span>✅ Qualité garantie</span>
-            <span className="ticker-dot">·</span>
-          </div>
-        </div>
       </section>
+
+      {/* Mobile-only infinite ticker — sits below hero, outside its background */}
+      <div className="hero-ticker">
+        <div className="hero-ticker-track">
+          <span>🚚 Livraison partout au Maroc sous 24–48h</span>
+          <span className="ticker-dot">·</span>
+          <span>💳 Paiement à la livraison</span>
+          <span className="ticker-dot">·</span>
+          <span>✅ Qualité garantie</span>
+          <span className="ticker-dot">·</span>
+          <span>🚚 Livraison partout au Maroc sous 24–48h</span>
+          <span className="ticker-dot">·</span>
+          <span>💳 Paiement à la livraison</span>
+          <span className="ticker-dot">·</span>
+          <span>✅ Qualité garantie</span>
+          <span className="ticker-dot">·</span>
+        </div>
+      </div>
 
       {/* Trust badges */}
       <section className="trust-section">
