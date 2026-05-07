@@ -5,7 +5,23 @@ const mongoose = require('mongoose');
 
 const app = express();
 
-app.use(cors({ origin: process.env.FRONTEND_URL || 'http://localhost:5173' }));
+const ALLOWED_ORIGINS = [
+  'https://souk-smart.com',
+  'https://www.souk-smart.com',
+  'http://localhost:5173',
+  'http://localhost:4173',
+];
+if (process.env.FRONTEND_URL) ALLOWED_ORIGINS.push(process.env.FRONTEND_URL);
+
+app.use(
+  cors({
+    origin: (origin, cb) => {
+      if (!origin || ALLOWED_ORIGINS.includes(origin)) return cb(null, true);
+      cb(new Error(`CORS: origin ${origin} not allowed`));
+    },
+    credentials: true,
+  })
+);
 app.use(express.json());
 
 mongoose
