@@ -739,7 +739,8 @@ table tbody tr:hover td { background: var(--color-bg); }
   /* Navbar height — announcement bar is hidden on mobile */
   :root { --navbar-h: 68px; }
 
-  /* Navbar: logo LEFT, cart icon + burger RIGHT */
+  /* Navbar: logo LEFT, empty middle, cart icon + burger RIGHT */
+  .navbar-main .container  { justify-content: space-between; }
   .navbar-nav              { display: none; }
   .navbar-search           { display: none; }
   .navbar-mobile-toggle    { display: flex; }
