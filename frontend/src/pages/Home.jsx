@@ -47,12 +47,15 @@ const FAQ_SCHEMA = {
 };
 
 const PER_PAGE = 4;
+const FAQS = FAQ_SCHEMA.mainEntity.map((e) => ({ q: e.name, a: e.acceptedAnswer.text }));
 
 export default function Home() {
   const [featured, setFeatured] = useState([]);
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
+  const [openFaq, setOpenFaq] = useState(null);
+  const toggleFaq = (i) => setOpenFaq((prev) => (prev === i ? null : i));
 
   useEffect(() => {
     Promise.all([
@@ -270,23 +273,57 @@ export default function Home() {
               <p className="section-subtitle">Tout ce que vous devez savoir</p>
             </div>
           </div>
-          <div className="faq-grid">
-            <div className="faq-item">
-              <h4>Livrez-vous partout au Maroc ?</h4>
-              <p>Oui, nous livrons dans toutes les villes du Maroc sous 24 à 48h. Commandez avant 14h pour recevoir le lendemain.</p>
-            </div>
-            <div className="faq-item">
-              <h4>Comment payer ma commande ?</h4>
-              <p>Le paiement se fait uniquement à la livraison en cash. Aucun paiement en ligne n'est requis.</p>
-            </div>
-            <div className="faq-item">
-              <h4>Puis-je retourner un produit ?</h4>
-              <p>Oui, si vous recevez un produit défectueux ou non conforme, contactez-nous immédiatement via WhatsApp pour un échange ou remboursement.</p>
-            </div>
-            <div className="faq-item">
-              <h4>Comment suivre ma commande ?</h4>
-              <p>Après confirmation de votre commande, notre équipe vous contacte par WhatsApp pour vous communiquer les détails de livraison.</p>
-            </div>
+          <div style={{ maxWidth: 720, margin: '0 auto' }}>
+            {FAQS.map((faq, i) => (
+              <div
+                key={i}
+                style={{
+                  borderBottom: '1px solid var(--border)',
+                  padding: '0',
+                }}
+              >
+                <button
+                  onClick={() => toggleFaq(i)}
+                  style={{
+                    width: '100%',
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    padding: '18px 0',
+                    background: 'none',
+                    border: 'none',
+                    cursor: 'pointer',
+                    textAlign: 'left',
+                    gap: 16,
+                  }}
+                >
+                  <span style={{ fontWeight: 600, fontSize: '0.95rem', color: 'var(--text)' }}>
+                    {faq.q}
+                  </span>
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    style={{
+                      flexShrink: 0,
+                      color: 'var(--primary)',
+                      transition: 'transform 0.2s',
+                      transform: openFaq === i ? 'rotate(180deg)' : 'rotate(0deg)',
+                    }}
+                  >
+                    <polyline points="6 9 12 15 18 9" />
+                  </svg>
+                </button>
+                {openFaq === i && (
+                  <p style={{ margin: '0 0 18px', color: 'var(--text-muted)', lineHeight: 1.7, fontSize: '0.9rem' }}>
+                    {faq.a}
+                  </p>
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </section>
