@@ -285,62 +285,42 @@ export default function Home() {
       </section>
 
       {/* Reviews */}
-      <section className="section" style={{ background: 'var(--bg)', borderTop: '1px solid var(--border)' }}>
+      <section className="section" style={{ background: 'var(--color-bg)', borderTop: '1px solid var(--color-border)' }}>
         <div className="container">
           <div className="section-header" style={{ marginBottom: 'var(--space-8)' }}>
             <div>
               <h2 className="section-title">Avis clients</h2>
               <p className="section-subtitle">Ce que disent nos clients</p>
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-              <div style={{ display: 'flex', gap: 2 }}>
+            <div className="reviews-header">
+              <div className="reviews-stars-row">
                 {[1,2,3,4,5].map((s) => (
-                  <svg key={s} width="18" height="18" viewBox="0 0 24 24" fill="var(--accent)" stroke="none">
+                  <svg key={s} width="18" height="18" viewBox="0 0 24 24" fill="var(--color-accent)" stroke="none">
                     <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
                   </svg>
                 ))}
               </div>
-              <span style={{ fontWeight: 700, fontSize: '1rem', color: 'var(--text)' }}>4.9</span>
-              <span style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>({REVIEWS.length} avis)</span>
+              <span className="reviews-score">4.9</span>
+              <span className="reviews-count">({REVIEWS.length} avis)</span>
             </div>
           </div>
 
-          <div className="products-grid">
+          <div className="reviews-grid">
             {REVIEWS.map((review, i) => (
-              <div
-                key={i}
-                style={{
-                  background: 'var(--white)',
-                  border: '1px solid var(--border)',
-                  borderRadius: 'var(--radius-lg)',
-                  padding: '24px',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: 12,
-                }}
-              >
-                <div style={{ display: 'flex', gap: 2 }}>
+              <div key={i} className="review-card">
+                <div className="review-stars">
                   {[1,2,3,4,5].map((s) => (
-                    <svg key={s} width="14" height="14" viewBox="0 0 24 24" fill={s <= review.rating ? 'var(--accent)' : 'var(--border)'} stroke="none">
+                    <svg key={s} width="14" height="14" viewBox="0 0 24 24" fill={s <= review.rating ? 'var(--color-accent)' : 'var(--color-border)'} stroke="none">
                       <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
                     </svg>
                   ))}
                 </div>
-                <p style={{ color: 'var(--text)', fontSize: '0.9rem', lineHeight: 1.6, margin: 0 }}>
-                  "{review.text}"
-                </p>
-                <div style={{ marginTop: 'auto', display: 'flex', alignItems: 'center', gap: 10 }}>
-                  <div style={{
-                    width: 36, height: 36, borderRadius: '50%',
-                    background: 'var(--primary)', color: 'white',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    fontWeight: 700, fontSize: '0.85rem', flexShrink: 0,
-                  }}>
-                    {review.name[0]}
-                  </div>
+                <p className="review-text">"{review.text}"</p>
+                <div className="review-author">
+                  <div className="review-avatar">{review.name[0]}</div>
                   <div>
-                    <div style={{ fontWeight: 600, fontSize: '0.875rem', color: 'var(--text)' }}>{review.name}</div>
-                    <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{review.city}</div>
+                    <div className="review-meta-name">{review.name}</div>
+                    <div className="review-meta-city">{review.city}</div>
                   </div>
                 </div>
               </div>
@@ -350,7 +330,7 @@ export default function Home() {
       </section>
 
       {/* FAQ */}
-      <section className="section" style={{ background: 'var(--white)', borderTop: '1px solid var(--border)' }}>
+      <section className="section" style={{ background: 'var(--color-surface)', borderTop: '1px solid var(--color-border)' }}>
         <div className="container">
           <div className="section-header" style={{ marginBottom: 'var(--space-8)' }}>
             <div>
@@ -358,54 +338,24 @@ export default function Home() {
               <p className="section-subtitle">Tout ce que vous devez savoir</p>
             </div>
           </div>
-          <div style={{ maxWidth: 720, margin: '0 auto' }}>
+          <div className="faq-accordion">
             {FAQS.map((faq, i) => (
-              <div
-                key={i}
-                style={{
-                  borderBottom: '1px solid var(--border)',
-                  padding: '0',
-                }}
-              >
-                <button
-                  onClick={() => toggleFaq(i)}
-                  style={{
-                    width: '100%',
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    padding: '18px 0',
-                    background: 'none',
-                    border: 'none',
-                    cursor: 'pointer',
-                    textAlign: 'left',
-                    gap: 16,
-                  }}
-                >
-                  <span style={{ fontWeight: 600, fontSize: '0.95rem', color: 'var(--text)' }}>
-                    {faq.q}
-                  </span>
+              <div key={i} className={`faq-accordion-item${openFaq === i ? ' open' : ''}`}>
+                <button className="faq-accordion-btn" onClick={() => toggleFaq(i)}>
+                  <div className="faq-accordion-q">
+                    <span className="faq-accordion-num">0{i + 1}</span>
+                    <span className="faq-accordion-question">{faq.q}</span>
+                  </div>
                   <svg
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                    style={{
-                      flexShrink: 0,
-                      color: 'var(--primary)',
-                      transition: 'transform 0.2s',
-                      transform: openFaq === i ? 'rotate(180deg)' : 'rotate(0deg)',
-                    }}
+                    className={`faq-accordion-chevron${openFaq === i ? ' open' : ''}`}
+                    width="18" height="18" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" strokeWidth="2.5"
                   >
                     <polyline points="6 9 12 15 18 9" />
                   </svg>
                 </button>
                 {openFaq === i && (
-                  <p style={{ margin: '0 0 18px', color: 'var(--text-muted)', lineHeight: 1.7, fontSize: '0.9rem' }}>
-                    {faq.a}
-                  </p>
+                  <p className="faq-accordion-answer">{faq.a}</p>
                 )}
               </div>
             ))}
