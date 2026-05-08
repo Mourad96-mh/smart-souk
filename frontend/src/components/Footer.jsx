@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="container">
         <div className="footer-grid">
           <div className="footer-brand">
-            <img src="/footer-logo.png" alt="Smart Souk" style={{ height: 40, marginBottom: 'var(--space-3)' }} />
+            <img src="/footer-logo.png" alt="Smart Souk" style={{ height: 64, marginBottom: 'var(--space-3)' }} />
             <p>
               Votre boutique en ligne multi-catégories. Des produits de qualité livrés
               partout au Maroc. Paiement à la livraison.
