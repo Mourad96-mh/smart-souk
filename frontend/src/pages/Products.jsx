@@ -52,6 +52,8 @@ export default function Products() {
   const activeCategory = categories.find((c) => c._id === category);
   const pageTitle = activeCategory ? activeCategory.name : 'Tous les produits';
 
+  const SITE_URL = 'https://souk-smart.com';
+
   const seoTitle = activeCategory ? activeCategory.name : 'Tous les produits';
   const seoDesc = activeCategory
     ? `Découvrez notre sélection ${activeCategory.name} — livraison sous 24-48h au Maroc, paiement à la livraison.`
@@ -60,9 +62,21 @@ export default function Products() {
     ? `${activeCategory.name.toLowerCase()}, achat ${activeCategory.name.toLowerCase()} maroc, livraison maroc, paiement livraison`
     : 'produits en ligne maroc, achat en ligne maroc, électronique maroc, mode maroc, maison maroc, sport maroc';
 
+  const breadcrumbSchema = activeCategory
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Accueil', item: `${SITE_URL}/` },
+          { '@type': 'ListItem', position: 2, name: 'Produits', item: `${SITE_URL}/produits` },
+          { '@type': 'ListItem', position: 3, name: activeCategory.name, item: `${SITE_URL}/produits?category=${activeCategory._id}` },
+        ],
+      }
+    : null;
+
   return (
     <main style={{ flex: 1 }}>
-      <Seo title={seoTitle} description={seoDesc} keywords={seoKeywords} canonical="/produits" />
+      <Seo title={seoTitle} description={seoDesc} keywords={seoKeywords} canonical="/produits" schema={breadcrumbSchema} />
       <div className="products-page">
         <div className="container">
           <div className="products-page-header">

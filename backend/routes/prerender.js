@@ -18,7 +18,10 @@ router.get('/produits/:identifier', async (req, res) => {
     const slug = product.slug || product._id;
     const canonicalUrl = `${SITE}/produits/${slug}`;
     const title = `${product.name} — Smart Souk`;
-    const desc = `${product.name} — ${product.description.slice(0, 150)}. Livraison au Maroc sous 24-48h. Paiement à la livraison.`;
+    const descSuffix = '. Livraison Maroc 24-48h. Paiement livraison.';
+    const descPrefix = `${product.name} — `;
+    const descBudget = Math.max(30, 155 - descPrefix.length - descSuffix.length);
+    const desc = descPrefix + product.description.slice(0, descBudget) + descSuffix;
     const categoryName = product.category?.name || '';
 
     const productSchema = {

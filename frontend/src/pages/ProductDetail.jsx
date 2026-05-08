@@ -63,6 +63,12 @@ export default function ProductDetail() {
   const stock = stockStatus();
   const slug = product.slug || product._id;
   const SITE_URL = 'https://souk-smart.com';
+  const metaDesc = (() => {
+    const suffix = '. Livraison Maroc 24-48h. Paiement livraison.';
+    const prefix = `${product.name} — `;
+    const budget = Math.max(30, 155 - prefix.length - suffix.length);
+    return prefix + product.description.slice(0, budget) + suffix;
+  })();
 
   const productSchema = {
     '@context': 'https://schema.org',
@@ -108,7 +114,7 @@ export default function ProductDetail() {
     <main style={{ flex: 1 }}>
       <Seo
         title={product.name}
-        description={`${product.name} — ${product.description.slice(0, 120)}. Livraison au Maroc sous 24-48h. Paiement à la livraison.`}
+        description={metaDesc}
         keywords={productKeywords}
         canonical={`/produits/${slug}`}
         image={product.image}

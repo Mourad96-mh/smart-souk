@@ -27,13 +27,13 @@ export default function Footer() {
             <h4>Informations</h4>
             <ul>
               <li>
-                <a href="#">Livraison</a>
+                <Link to="/contact">Livraison</Link>
               </li>
               <li>
-                <a href="#">Paiement</a>
+                <Link to="/contact">Paiement</Link>
               </li>
               <li>
-                <a href="#">Contact</a>
+                <Link to="/contact">Contact</Link>
               </li>
             </ul>
           </div>

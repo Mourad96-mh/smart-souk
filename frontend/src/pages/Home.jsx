@@ -260,6 +260,36 @@ export default function Home() {
           })()}
         </div>
       </section>
+
+      {/* FAQ */}
+      <section className="section" style={{ background: 'var(--white)', borderTop: '1px solid var(--border)' }}>
+        <div className="container">
+          <div className="section-header" style={{ marginBottom: 'var(--space-8)' }}>
+            <div>
+              <h2 className="section-title">Questions fréquentes</h2>
+              <p className="section-subtitle">Tout ce que vous devez savoir</p>
+            </div>
+          </div>
+          <div className="faq-grid">
+            <div className="faq-item">
+              <h4>Livrez-vous partout au Maroc ?</h4>
+              <p>Oui, nous livrons dans toutes les villes du Maroc sous 24 à 48h. Commandez avant 14h pour recevoir le lendemain.</p>
+            </div>
+            <div className="faq-item">
+              <h4>Comment payer ma commande ?</h4>
+              <p>Le paiement se fait uniquement à la livraison en cash. Aucun paiement en ligne n'est requis.</p>
+            </div>
+            <div className="faq-item">
+              <h4>Puis-je retourner un produit ?</h4>
+              <p>Oui, si vous recevez un produit défectueux ou non conforme, contactez-nous immédiatement via WhatsApp pour un échange ou remboursement.</p>
+            </div>
+            <div className="faq-item">
+              <h4>Comment suivre ma commande ?</h4>
+              <p>Après confirmation de votre commande, notre équipe vous contacte par WhatsApp pour vous communiquer les détails de livraison.</p>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
