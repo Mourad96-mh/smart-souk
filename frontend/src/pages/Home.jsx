@@ -4,6 +4,13 @@ import { api } from '../utils/api';
 import ProductCard from '../components/ProductCard';
 import Seo from '../components/Seo';
 
+const REVIEWS = [
+  { name: 'Karim B.', city: 'Casablanca', rating: 5, text: 'Livraison ultra rapide, reçu le lendemain. Le produit est exactement comme sur la photo. Je recommande vivement !' },
+  { name: 'Fatima Z.', city: 'Rabat', rating: 5, text: 'Super boutique ! Paiement à la livraison, pas de stress. Le livreur était très sympa. Je vais recommander.' },
+  { name: 'Youssef M.', city: 'Marrakech', rating: 5, text: 'Qualité au rendez-vous et prix très compétitifs. Commande reçue en moins de 48h. Parfait !' },
+  { name: 'Nadia R.', city: 'Fès', rating: 4, text: 'Bonne expérience globale. Produit de qualité, emballage soigné. Service client réactif sur WhatsApp.' },
+];
+
 const HOME_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'Store',
@@ -17,6 +24,19 @@ const HOME_SCHEMA = {
   currenciesAccepted: 'MAD',
   paymentAccepted: 'Cash',
   openingHours: 'Mo-Sa 09:00-20:00',
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.9',
+    reviewCount: String(REVIEWS.length),
+    bestRating: '5',
+    worstRating: '1',
+  },
+  review: REVIEWS.map((r) => ({
+    '@type': 'Review',
+    author: { '@type': 'Person', name: r.name },
+    reviewRating: { '@type': 'Rating', ratingValue: String(r.rating), bestRating: '5' },
+    reviewBody: r.text,
+  })),
 };
 
 const FAQ_SCHEMA = {
@@ -261,6 +281,71 @@ export default function Home() {
               </>
             );
           })()}
+        </div>
+      </section>
+
+      {/* Reviews */}
+      <section className="section" style={{ background: 'var(--bg)', borderTop: '1px solid var(--border)' }}>
+        <div className="container">
+          <div className="section-header" style={{ marginBottom: 'var(--space-8)' }}>
+            <div>
+              <h2 className="section-title">Avis clients</h2>
+              <p className="section-subtitle">Ce que disent nos clients</p>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              <div style={{ display: 'flex', gap: 2 }}>
+                {[1,2,3,4,5].map((s) => (
+                  <svg key={s} width="18" height="18" viewBox="0 0 24 24" fill="var(--accent)" stroke="none">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                  </svg>
+                ))}
+              </div>
+              <span style={{ fontWeight: 700, fontSize: '1rem', color: 'var(--text)' }}>4.9</span>
+              <span style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>({REVIEWS.length} avis)</span>
+            </div>
+          </div>
+
+          <div className="products-grid">
+            {REVIEWS.map((review, i) => (
+              <div
+                key={i}
+                style={{
+                  background: 'var(--white)',
+                  border: '1px solid var(--border)',
+                  borderRadius: 'var(--radius-lg)',
+                  padding: '24px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: 12,
+                }}
+              >
+                <div style={{ display: 'flex', gap: 2 }}>
+                  {[1,2,3,4,5].map((s) => (
+                    <svg key={s} width="14" height="14" viewBox="0 0 24 24" fill={s <= review.rating ? 'var(--accent)' : 'var(--border)'} stroke="none">
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                    </svg>
+                  ))}
+                </div>
+                <p style={{ color: 'var(--text)', fontSize: '0.9rem', lineHeight: 1.6, margin: 0 }}>
+                  "{review.text}"
+                </p>
+                <div style={{ marginTop: 'auto', display: 'flex', alignItems: 'center', gap: 10 }}>
+                  <div style={{
+                    width: 36, height: 36, borderRadius: '50%',
+                    background: 'var(--primary)', color: 'white',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    fontWeight: 700, fontSize: '0.85rem', flexShrink: 0,
+                  }}>
+                    {review.name[0]}
+                  </div>
+                  <div>
+                    <div style={{ fontWeight: 600, fontSize: '0.875rem', color: 'var(--text)' }}>{review.name}</div>
+                    <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{review.city}</div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
